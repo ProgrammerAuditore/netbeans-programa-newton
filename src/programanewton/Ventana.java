@@ -549,10 +549,10 @@ public class Ventana extends javax.swing.JFrame {
     private void fncLimpiarCamposDeTexto(Container container) {
         for (Component crearComponente : container.getComponents()) {
             if (crearComponente instanceof JTextField) {
-               
-                JTextField campo_de_texto = (JTextField) crearComponente;
-
-                campo_de_texto.setText("");
+                
+                JTextField transformar = (JTextField) crearComponente;
+                
+                transformar.setText("");
             } else if (crearComponente instanceof Container) {
                 
                 fncLimpiarCamposDeTexto((Container) crearComponente);
@@ -563,13 +563,13 @@ public class Ventana extends javax.swing.JFrame {
     private void fncObtenerValoresCampos(Container container) {
         for (Component crearComponente : container.getComponents()) {
             if (crearComponente instanceof JTextField) {
-               
-                JTextField campo_de_texto = (JTextField) crearComponente;
-
-                if(campo_de_texto.getText().equals("-") || campo_de_texto.getText().equals("+") || campo_de_texto.getText().length() > 9) 
+                
+                JTextField transformar = (JTextField) crearComponente;
+              
+                if(transformar.getText().equals("-") || transformar.getText().equals("+") || transformar.getText().length() > 9) 
                     pilaValoresCampos.add("0");
                 else{
-                    pilaValoresCampos.add(campo_de_texto.getText());
+                    pilaValoresCampos.add(transformar.getText());
                 }
 
             } else if (crearComponente instanceof Container) {
