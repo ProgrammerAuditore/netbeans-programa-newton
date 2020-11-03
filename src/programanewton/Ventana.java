@@ -501,7 +501,7 @@ public class Ventana extends javax.swing.JFrame {
             
         } else if (this.cmbxOpciones.getSelectedIndex() == 1
                && (this.pilaValoresCampos.elementAt(8).equals("") || Integer.parseInt((String) this.pilaValoresCampos.elementAt(8)) == 0)) {
-            JOptionPane.showMessageDialog(null, "Por favor, verifica los datos de las variable porcentaje Ea(x) y Ea(y)."
+            JOptionPane.showMessageDialog(null, "Por favor, verifica los datos de las variable porcentaje Ea(xr) y Ea(yr)."
                     + msgRequisitos);
           
         } else if (this.cmbxOpciones.getSelectedIndex() == 0
