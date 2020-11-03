@@ -550,26 +550,27 @@ public class Ventana extends javax.swing.JFrame {
         for (Component crearComponente : container.getComponents()) {
             if (crearComponente instanceof JTextField) {
                 
-                JTextField campo_de_texto = (JTextField) crearComponente;
+                this.campo_de_texto = (JTextField) crearComponente;
 
-                campo_de_texto.setText("");
+                this.campo_de_texto.setText("");
             } else if (crearComponente instanceof Container) {
                 
                 fncLimpiarCamposDeTexto((Container) crearComponente);
             }
         }
     }
-
+    
     private void fncObtenerValoresCampos(Container container) {
         for (Component crearComponente : container.getComponents()) {
             if (crearComponente instanceof JTextField) {
                 
-                JTextField campo_de_texto = (JTextField) crearComponente;
+               
+                this.campo_de_texto = (JTextField) crearComponente;
               
-                if(campo_de_texto.getText().equals("-") || campo_de_texto.getText().equals("+") || campo_de_texto.getText().length() > 9) 
+                if(this.campo_de_texto.getText().equals("-") ||  this.campo_de_texto.getText().equals("+") ||  this.campo_de_texto.getText().length() > 9) 
                     pilaValoresCampos.add("0");
                 else{
-                    pilaValoresCampos.add(campo_de_texto.getText());
+                    pilaValoresCampos.add( this.campo_de_texto.getText());
                 }
 
             } else if (crearComponente instanceof Container) {
@@ -583,9 +584,9 @@ public class Ventana extends javax.swing.JFrame {
         for (Component crearComponente : container.getComponents()) {
             if (crearComponente instanceof JTextField) {
                
-                JTextField campo_de_texto = (JTextField) crearComponente;
+                this.campo_de_texto = (JTextField) crearComponente;
 
-                campo_de_texto.addKeyListener(new KeyAdapter() {
+                this.campo_de_texto.addKeyListener(new KeyAdapter() {
                     @Override
                     public void keyTyped(KeyEvent evt) {
                         char charCap = evt.getKeyChar();
@@ -605,7 +606,8 @@ public class Ventana extends javax.swing.JFrame {
         for (Component crearComponente : container.getComponents()) {
             if (crearComponente instanceof JTextField) {
 
-                JTextField campo_de_texto = (JTextField) crearComponente;
+                this.campo_de_texto = (JTextField) crearComponente;
+                JTextField cmp = (JTextField) crearComponente;
 
                 campo_de_texto.addKeyListener(new KeyAdapter() {
 
@@ -617,16 +619,16 @@ public class Ventana extends javax.swing.JFrame {
 
                         } else if (charCap == '-' || charCap == '+') {
 
-                            if (campo_de_texto.getText().contains("+") || campo_de_texto.getText().contains("-")) {
+                            if (cmp.getText().contains("+") || cmp.getText().contains("-")) {
                                 evt.consume();
                                 JOptionPane.showMessageDialog(null, "Solo puede contener un símbolo de negativo o positivo al principio.");
                             } else {
-                                campo_de_texto.setCaretPosition(0);
+                                cmp.setCaretPosition(0);
                             }
 
                         } else if (charCap == '.') {
 
-                            if (campo_de_texto.getText().contains(".")) {
+                            if (cmp.getText().contains(".")) {
                                 evt.consume();
                                 JOptionPane.showMessageDialog(null, "Solo puede contener un símbolo de punto decimal.");
                             }
@@ -882,4 +884,5 @@ public class Ventana extends javax.swing.JFrame {
     Stack pilaValoresCampos = new Stack();
     
     private SistemaDeOperaciones operaciones;
+    JTextField campo_de_texto;
 }
